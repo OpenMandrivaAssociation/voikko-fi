@@ -1,8 +1,8 @@
 
 %define name	voikko-fi
 %define tarname	suomi-malaga
-%define version	0.7.5
-%define rel	2
+%define version	0.7.6
+%define rel	1
 
 Summary:	Description of Finnish morphology written in Malaga (Voikko edition)
 Name:		%name
@@ -12,7 +12,6 @@ License:	GPL
 Group:		Text tools
 URL:            http://voikko.sourceforge.net/
 Source:         http://downloads.sourceforge.net/voikko/%tarname-%version.tar.gz
-Patch0:		suomi-malaga-0.7.5-bugfix.patch
 BuildRoot:	%{_tmppath}/%{name}-root
 BuildRequires:	malaga
 BuildRequires:	python
@@ -29,10 +28,9 @@ Sukija text indexer.
 
 %prep
 %setup -q -n %tarname-%version
-%patch0 -p2
 
 %build
-make voikko
+%make voikko
 
 %install
 rm -rf %{buildroot}
@@ -50,5 +48,6 @@ rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
-%doc README ChangeLog LUE.MINUT CONTRIBUTORS
+%doc README README.fi ChangeLog CONTRIBUTORS
 %{_prefix}/lib/voikko
+
