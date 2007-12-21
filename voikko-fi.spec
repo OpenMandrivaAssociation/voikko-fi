@@ -12,6 +12,7 @@ License:	GPL
 Group:		Text tools
 URL:            http://voikko.sourceforge.net/
 Source:         http://downloads.sourceforge.net/voikko/%tarname-%version.tar.gz
+BuildRoot:	%{_tmppath}/%{name}-root
 BuildRequires:	malaga
 BuildRequires:	python
 Requires:	locales-fi
