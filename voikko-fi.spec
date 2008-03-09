@@ -2,7 +2,7 @@
 %define name	voikko-fi
 %define tarname	suomi-malaga
 %define version	1.0
-%define rel	1
+%define rel	2
 
 Summary:	Description of Finnish morphology written in Malaga (Voikko edition)
 Name:		%name
@@ -16,6 +16,8 @@ BuildRoot:	%{_tmppath}/%{name}-root
 BuildRequires:	malaga
 BuildRequires:	python
 Requires:	locales-fi
+# aspell = 1, myspell = 2, lang-specific = 3
+Provides:	enchant-dictionary = 3
 Provides:	voikko-dictionary
 Provides:	voikko-fi_FI
 Provides:	spell-fi
