@@ -1,14 +1,14 @@
 
 %define name	voikko-fi
 %define tarname	suomi-malaga
-%define version	1.0
-%define rel	2
+%define version	1.1
+%define rel	1
 
 Summary:	Description of Finnish morphology written in Malaga (Voikko edition)
 Name:		%name
 Version:	%version
 Release:	%mkrel %rel
-License:	GPL
+License:	GPLv2+
 Group:		Text tools
 URL:            http://voikko.sourceforge.net/
 Source:         http://downloads.sourceforge.net/voikko/%tarname-%version.tar.gz
