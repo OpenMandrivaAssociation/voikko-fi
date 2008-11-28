@@ -1,7 +1,7 @@
 
 %define name	voikko-fi
 %define tarname	suomi-malaga
-%define version	1.1
+%define version	1.2
 %define rel	1
 
 Summary:	Description of Finnish morphology written in Malaga (Voikko edition)
@@ -13,7 +13,7 @@ Group:		Text tools
 URL:            http://voikko.sourceforge.net/
 Source:         http://downloads.sourceforge.net/voikko/%tarname-%version.tar.gz
 BuildRoot:	%{_tmppath}/%{name}-root
-BuildRequires:	malaga
+BuildRequires:	malaga >= 7.8
 BuildRequires:	python
 Requires:	locales-fi
 # aspell = 1, myspell = 2, lang-specific = 3
@@ -21,7 +21,7 @@ Provides:	enchant-dictionary = 3
 Provides:	voikko-dictionary
 Provides:	voikko-fi_FI
 Provides:	spell-fi
-Obsoletes:	suomi-malaga-voikko
+Obsoletes:	suomi-malaga-voikko < 1.0
 
 %description
 Description of Finnish morphology written in Malaga. This version is modified
@@ -32,7 +32,7 @@ Sukija text indexer.
 %setup -q -n %tarname-%version
 
 %build
-%make voikko
+%make voikko GENLEX_OPTS="--extra-usage=it"
 
 %install
 rm -rf %{buildroot}
