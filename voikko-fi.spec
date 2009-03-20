@@ -1,7 +1,7 @@
 
 %define name	voikko-fi
 %define tarname	suomi-malaga
-%define version	1.2
+%define version	1.3
 %define rel	1
 
 Summary:	Description of Finnish morphology written in Malaga (Voikko edition)
@@ -32,7 +32,7 @@ Sukija text indexer.
 %setup -q -n %tarname-%version
 
 %build
-%make voikko GENLEX_OPTS="--extra-usage=it"
+%make voikko GENLEX_OPTS="--extra-usage=it" EXTRA_LEX="vocabulary/erikoisalat/linux-distributions.lex"
 
 %install
 rm -rf %{buildroot}
@@ -50,6 +50,6 @@ rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
-%doc README README.fi ChangeLog CONTRIBUTORS
+%doc README README.fi CONTRIBUTORS
 %{_prefix}/lib/voikko
 
