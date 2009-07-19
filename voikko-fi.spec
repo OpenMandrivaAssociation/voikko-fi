@@ -2,7 +2,7 @@
 %define name	voikko-fi
 %define tarname	suomi-malaga
 %define version	1.3
-%define rel	1
+%define rel	2
 
 Summary:	Description of Finnish morphology written in Malaga (Voikko edition)
 Name:		%name
@@ -43,7 +43,7 @@ rm -rf %{buildroot}
 # instead of %{_libdir} to achieve biarch compatibility. That is, if the user
 # has both libvoikkoX and lib64voikkoX installed, both of them work with the
 # same voikko-fi package.
-make voikko-install DESTDIR=%{buildroot}%{_prefix}/lib/voikko
+make voikko-install DESTDIR=%{buildroot}%{_prefix}/lib/voikko/1/mor-standard
 
 %clean
 rm -rf %{buildroot}
