@@ -1,17 +1,26 @@
 
 %define name	voikko-fi
 %define tarname	suomi-malaga
-%define version	1.3
-%define rel	2
+%define version	1.4
+%define prever	rc2
+%define rel	1
 
 Summary:	Description of Finnish morphology written in Malaga (Voikko edition)
 Name:		%name
 Version:	%version
+%if %prever
+Release:	%mkrel 0.%prever.%rel
+%else
 Release:	%mkrel %rel
+%endif
 License:	GPLv2+
 Group:		Text tools
 URL:            http://voikko.sourceforge.net/
+%if %prever
+Source:		http://www.puimula.org/htp/testing/%tarname-%version%prever.tar.gz
+%else
 Source:         http://downloads.sourceforge.net/voikko/%tarname-%version.tar.gz
+%endif
 BuildRoot:	%{_tmppath}/%{name}-root
 BuildRequires:	malaga >= 7.8
 BuildRequires:	python
@@ -32,7 +41,8 @@ Sukija text indexer.
 %setup -q -n %tarname-%version
 
 %build
-%make voikko GENLEX_OPTS="--extra-usage=it" EXTRA_LEX="vocabulary/erikoisalat/linux-distributions.lex"
+%make voikko GENLEX_OPTS="--extra-usage=it" \
+	EXTRA_LEX="vocabulary/erikoisalat/linux-distributions.lex vocabulary/erikoisalat/atk-lyhenteet.lex"
 
 %install
 rm -rf %{buildroot}
@@ -43,7 +53,7 @@ rm -rf %{buildroot}
 # instead of %{_libdir} to achieve biarch compatibility. That is, if the user
 # has both libvoikkoX and lib64voikkoX installed, both of them work with the
 # same voikko-fi package.
-make voikko-install DESTDIR=%{buildroot}%{_prefix}/lib/voikko/1/mor-standard
+make voikko-install DESTDIR=%{buildroot}%{_prefix}/lib/voikko
 
 %clean
 rm -rf %{buildroot}
@@ -51,5 +61,6 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root)
 %doc README README.fi CONTRIBUTORS
-%{_prefix}/lib/voikko
+%dir %{_prefix}/lib/voikko
+%{_prefix}/lib/voikko/?
 
