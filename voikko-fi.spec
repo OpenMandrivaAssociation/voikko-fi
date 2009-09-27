@@ -2,7 +2,7 @@
 %define name	voikko-fi
 %define tarname	suomi-malaga
 %define version	1.4
-%define prever	rc2
+%define prever	rc3
 %define rel	1
 
 Summary:	Description of Finnish morphology written in Malaga (Voikko edition)
