@@ -1,7 +1,7 @@
 
 %define name	voikko-fi
 %define tarname	suomi-malaga
-%define version	1.6
+%define version	1.7
 %define prever	0
 %define rel	1
 
