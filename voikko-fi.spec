@@ -1,11 +1,11 @@
 
 %define name	voikko-fi
 %define tarname	suomi-malaga
-%define version	1.7
+%define version	1.8
 %define prever	0
 %define rel	1
 
-Summary:	Description of Finnish morphology written in Malaga (Voikko edition)
+Summary:	Finnish support for Voikko spellchecker/hyphenator
 Name:		%name
 Version:	%version
 %if %prever
