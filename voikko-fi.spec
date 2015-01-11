@@ -39,12 +39,13 @@ Sukija text indexer.
 %setup -q -n %{tarname}-%{version}
 
 %build
-export PYTHON=%{__python2}
+# (tpg) build with py2
+sed -i -e "s/PYTHON=python/PYTHON=%{__python2}/g" Makefile
+
 %make voikko GENLEX_OPTS="--extra-usage=it" \
 	EXTRA_LEX="vocabulary/erikoisalat/linux-distributions.lex vocabulary/erikoisalat/atk-lyhenteet.lex"
 
 %install
-export PYTHON=%{__python2}
 # Files differ on big-endian and small-endian archs, and they have different
 # names (*_l vs *_b). This is the reason we use %{_prefix}/lib instead of
 # %{_datadir} and won't noarch the package. Note that we use %{_prefix}/lib
