@@ -13,7 +13,7 @@ Release:	%{rel}
 %endif
 License:	GPLv2+
 Group:		Text tools
-URL:            http://voikko.sourceforge.net/
+URL:            https://voikko.sourceforge.net/
 %if %prever
 Source:		http://www.puimula.org/htp/testing/%tarname-%version%prever.tar.gz
 %else
