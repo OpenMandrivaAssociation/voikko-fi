@@ -19,6 +19,7 @@ Source:		http://www.puimula.org/htp/testing/%tarname-%version%prever.tar.gz
 %else
 Source:         http://downloads.sourceforge.net/voikko/%tarname-%version.tar.gz
 %endif
+BuildRequires:	make
 BuildRequires:	malaga >= 7.8
 BuildRequires:	python2
 Requires:	locales-fi
